@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.2</title>
+</head>
+<body>
+    
+    <h1> Test window.open </h1>
+    <button onclick="openNewWindow()">Open new window</button>
+    <button onclick="readNewWindow()">get html from other window</button>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+
+        function openNewWindow(){
+            window.open("http://localhost:5000/newWindow.html");
+            
+        }
+
+        function readNewWindow(){
+            $("#elementLoadedFromOtherPage").load("http://localhost:5001#header");
+        }
+    </script>
+
+        <h2 name="elementLoadedFromOtherPage" id="elementLoadedFromOtherPage"></h2>
+</body>
+</html>
