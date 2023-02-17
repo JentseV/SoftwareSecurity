@@ -14,17 +14,21 @@
     <button onclick="readNewWindow()">get html from other window</button>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script>
+        var windowx;
 
         function openNewWindow(){
-            window.open("http://localhost:5000/newWindow.html");
+            windowx = window.open("http://localhost:5000/newWindow.html");
             
         }
 
         function readNewWindow(){
-            $("#elementLoadedFromOtherPage").load("http://localhost:5001#header");
+            //$("#elementLoadedFromOtherPage").load("http://localhost:5000#header");
+            var p = document.createElement("p");
+            console.log(windowx.document);
+            p.text = windowx.document.getElementById("ppp")[0];
+            document.body.appendChild(p);
         }
     </script>
 
-        <h2 name="elementLoadedFromOtherPage" id="elementLoadedFromOtherPage"></h2>
 </body>
 </html>
