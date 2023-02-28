@@ -21,4 +21,4 @@ server.get("",(request,response) => {
 
 server.listen(PORT,HOST,() => {
     console.log("Server started listening...");
-})
+})  
