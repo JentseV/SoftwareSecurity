@@ -12,9 +12,10 @@
     <h1> Test window.open </h1>
     <button onclick="openNewWindow()">Open new window</button>
     <button onclick="readNewWindow()">get html from other window</button>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <button onclick="readCrossWindow()"> Get html from other window that isnt in our SOP</button>
     <script>
-        var windowx;
+        let windowx;
+        let windowL;
 
         function openNewWindow(){
             windowx = window.open("http://localhost:5000/newWindow.html");
@@ -22,13 +23,22 @@
         }
 
         function readNewWindow(){
-            //$("#elementLoadedFromOtherPage").load("http://localhost:5000#header");
-            var p = document.createElement("p");
+            let p = document.createElement("p");
+            console.log("Working cause same source");
             console.log(windowx.document);
-            p.text = windowx.document.getElementById("ppp")[0];
+            p.textContent = windowx.document.getElementById("ppp").textContent;
             document.body.appendChild(p);
         }
-    </script>
+
+        function readCrossWindow(){
+            let ps = document.createElement("p");
+            windowL = window.open("https://juice-shop.herokuapp.com/#/");
+            console.log("Doesnt work cause different source");
+            console.log(windowL.document);
+            ps.textContent = windowL.document.getElementsByClassName("ng-star-inserted")[0].textContent;
+            document.body.appendChild(ps);
+        }
+    </script>   
 
 </body>
 </html>

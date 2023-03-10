@@ -9,10 +9,7 @@ const PORT = "5000";
 const reply = "Hello from api!";
 
 
-server.use((request,response,next) => {
-    response.header("Access-Control-Allow-Origin", "http://localhost:5001"); // allow our web app to access our api
-    next();
-})
+
 
 
 server.get("",(request,response) => {
@@ -21,4 +18,4 @@ server.get("",(request,response) => {
 
 server.listen(PORT,HOST,() => {
     console.log("Server started listening...");
-})
+})  
